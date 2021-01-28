@@ -176,9 +176,9 @@ export class Spotify extends Plugin {
       `${BASE_URL}/albums/${id}`,
       this.axiosOptions
     )
-    const tracks = album.tracks.items.map(item =>
-      item.name ? Spotify.convertToUnresolved(item) : null
-    )
+    const tracks = album.tracks.items
+      .map(item => (item.name ? Spotify.convertToUnresolved(item) : null))
+      .filter(item => item !== null)
     let next = album.tracks.next,
       page = 1
 
@@ -192,9 +192,9 @@ export class Spotify extends Plugin {
         this.axiosOptions
       )
       tracks.push(
-        ...nextPage.items.map(item =>
-          item.name ? Spotify.convertToUnresolved(item) : null
-        )
+        ...nextPage.items
+          .map(item => (item.name ? Spotify.convertToUnresolved(item) : null))
+          .filter(item => item !== null)
       )
       next = nextPage.next
       page++
@@ -208,9 +208,11 @@ export class Spotify extends Plugin {
       `${BASE_URL}/playlists/${id}`,
       this.axiosOptions
     )
-    const tracks = playlist.tracks.items.map(item =>
-      item.track.name ? Spotify.convertToUnresolved(item.track) : null
-    )
+    const tracks = playlist.tracks.items
+      .map(item =>
+        item.track.name ? Spotify.convertToUnresolved(item.track) : null
+      )
+      .filter(item => item !== null)
     let next = playlist.tracks.next,
       page = 1
 
@@ -224,9 +226,11 @@ export class Spotify extends Plugin {
         this.axiosOptions
       )
       tracks.push(
-        ...nextPage.items.map(item =>
-          item.track.name ? Spotify.convertToUnresolved(item.track) : null
-        )
+        ...nextPage.items
+          .map(item =>
+            item.track.name ? Spotify.convertToUnresolved(item.track) : null
+          )
+          .filter(item => item !== null)
       )
       next = nextPage.next
       page++
