@@ -23,6 +23,6 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "erela.js": "latest"
+    "erela.js": "github:VampireChicken12/erela.js-filters#build"
   }
 }
