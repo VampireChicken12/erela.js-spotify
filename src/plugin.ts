@@ -238,7 +238,7 @@ export class Spotify extends Plugin {
       next = nextPage.next
       page++
     }
-
+    console.log(tracks, playlist.name)
     return { tracks, name: playlist.name ? playlist.name : 'Untitled playlist' }
   }
 
