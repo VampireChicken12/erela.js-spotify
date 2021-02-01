@@ -131,7 +131,7 @@ class Spotify extends erela_js_1.Plugin {
                 next = nextPage.next;
                 page++;
             }
-            return { tracks, name: album.name };
+            return { tracks, name: album.name ? album.name : 'untitled album' };
         });
     }
     getPlaylistTracks(id) {
@@ -151,7 +151,7 @@ class Spotify extends erela_js_1.Plugin {
                 next = nextPage.next;
                 page++;
             }
-            return { tracks, name: playlist.name };
+            return { tracks, name: playlist.name ? playlist.name : 'Untitled playlist' };
         });
     }
     getTrack(id) {
