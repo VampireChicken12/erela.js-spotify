@@ -200,7 +200,7 @@ export class Spotify extends Plugin {
       page++
     }
 
-    return { tracks, name: album.name }
+    return { tracks, name: album.name ? album.name: 'untitled album' }
   }
 
   private async getPlaylistTracks (id: string): Promise<Result> {
@@ -236,7 +236,7 @@ export class Spotify extends Plugin {
       page++
     }
 
-    return { tracks, name: playlist.name }
+    return { tracks, name: playlist.name? playlist.name : 'Untitled playlist' }
   }
 
   private async getTrack (id: string): Promise<Result> {
