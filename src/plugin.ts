@@ -132,7 +132,6 @@ export class Spotify extends Plugin {
 
         if (func) {
           const data: Result = await func(id)
-          console.log(data)
           const loadType = type === 'track' ? 'TRACK_LOADED' : 'PLAYLIST_LOADED'
           const name = ['playlist', 'album'].includes(type)
             ? data.name
