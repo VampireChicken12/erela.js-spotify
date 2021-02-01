@@ -86,7 +86,6 @@ class Spotify extends erela_js_1.Plugin {
                     const func = this.functions[type];
                     if (func) {
                         const data = yield func(id);
-                        console.log(data);
                         const loadType = type === 'track' ? 'TRACK_LOADED' : 'PLAYLIST_LOADED';
                         const name = ['playlist', 'album'].includes(type)
                             ? data.name
