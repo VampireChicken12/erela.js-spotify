@@ -132,9 +132,13 @@ export class Spotify extends Plugin {
 
         if (func) {
           const data: Result = await func(id)
-
+          console.log(data)
           const loadType = type === 'track' ? 'TRACK_LOADED' : 'PLAYLIST_LOADED'
-          const name = ['playlist', 'album'].includes(type) ? data.name : null
+          const name = ['playlist', 'album'].includes(type)
+            ? data.name
+              ? data.name
+              : 'Untitled'
+            : null
 
           const tracks = data.tracks
             .map(query => {
@@ -200,7 +204,7 @@ export class Spotify extends Plugin {
       page++
     }
 
-    return { tracks, name: album.name ? album.name: 'untitled album' }
+    return { tracks, name: album.name ? album.name : 'untitled album' }
   }
 
   private async getPlaylistTracks (id: string): Promise<Result> {
@@ -236,7 +240,7 @@ export class Spotify extends Plugin {
       page++
     }
 
-    return { tracks, name: playlist.name? playlist.name : 'Untitled playlist' }
+    return { tracks, name: playlist.name ? playlist.name : 'Untitled playlist' }
   }
 
   private async getTrack (id: string): Promise<Result> {
