@@ -155,6 +155,7 @@ class Spotify extends erela_js_1.Plugin {
                 next = nextPage.next;
                 page++;
             }
+            console.log(tracks, playlist.name);
             return { tracks, name: playlist.name ? playlist.name : 'Untitled playlist' };
         });
     }
