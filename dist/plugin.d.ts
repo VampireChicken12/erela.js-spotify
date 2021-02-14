@@ -1,4 +1,4 @@
-import { Manager, Plugin, UnresolvedTrack, UnresolvedQuery } from 'erela.js';
+import { Manager, Plugin, UnresolvedTrack, UnresolvedQuery } from "erela.js";
 export declare class Spotify extends Plugin {
     private readonly authorization;
     private token;
