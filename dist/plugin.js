@@ -112,7 +112,6 @@ class Spotify extends erela_js_1.Plugin {
                     return buildSearch("LOAD_FAILED", null, msg, null);
                 }
                 catch (e) {
-                    console.log(e);
                     return buildSearch((_b = e.loadType) !== null && _b !== void 0 ? _b : "LOAD_FAILED", null, (_c = e.message) !== null && _c !== void 0 ? _c : null, null);
                 }
             }
@@ -156,7 +155,6 @@ class Spotify extends erela_js_1.Plugin {
                 next = nextPage.next;
                 page++;
             }
-            console.log(tracks, playlist.name);
             return {
                 tracks,
                 name: playlist.name ? playlist.name : "Untitled playlist",
