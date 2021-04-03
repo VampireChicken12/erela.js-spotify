@@ -165,7 +165,6 @@ export class Spotify extends Plugin {
           'Incorrect type for Spotify URL, must be one of "track", "album" or "playlist".';
         return buildSearch("LOAD_FAILED", null, msg, null);
       } catch (e) {
-        console.log(e);
         return buildSearch(
           e.loadType ?? "LOAD_FAILED",
           null,
@@ -242,7 +241,6 @@ export class Spotify extends Plugin {
       next = nextPage.next;
       page++;
     }
-    console.log(tracks, playlist.name);
     return {
       tracks,
       name: playlist.name ? playlist.name : "Untitled playlist",
